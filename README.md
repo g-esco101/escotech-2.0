@@ -5,6 +5,7 @@ Purchases are made with paypal via calls to their REST API.   Once a purchase is
 
 - Hosted on AWS: https://goviesco.com
 - Demo: https://www.youtube.com/watch?v=GFSmuP0th0Q&list=PLdK_FPPkkRWmCwHKLnNEv6tFWcbF701rQ
+
 Currently, paypal is in sandbox mode, so you are unable to login. Also, you are unable to login as an admin. So, please check the playlist to see a demo of these use cases and features, including the email receipt with the order details!
 ## Intallation
 To get this app running requires the creation and configuration of the following accounts: paypal developer, gmail, and AWS. The setup for each would require the writing of an article in itself. As an alternative, I will leave the app hosted on AWS as long as possible and provide a video that demos the app on youtube.
