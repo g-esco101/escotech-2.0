@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Lightbox | EscoTech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Displays a lightbox for product images.">
+</head>
+<body>
+<div th:fragment="lightbox" class="modal fade" id="lightboxModal" tabindex="-1" aria-labelledby="lightboxModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-xl light-modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-img"></div>
+                <h1 class="h5 modal-title" id="lightboxModalLabel" th:utext="${product.model}"></h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body lightbox-modal-body">
+                <div class="row">
+                    <div class="col-12 col-lg-10">
+                        <div class="lightbox-slides" th:each="i, iStat : ${#numbers.sequence(0, product.imageCount - 1)}">
+                            <img th:id="'lightbox-slide-' + ${iStat.index}" class="lightbox-modal-img"
+                                 th:attr="srcset=|@{/product/image(id=${product.id},index=${iStat.index},name='scaled100')} 100w,
+                                        @{/product/image(id=${product.id},index=${iStat.index},name='scaled600')} 600w,
+                                        @{/product/image(id=${product.id},index=${iStat.index},name='scaled1600')} 1600w|"
+                                 sizes="540px"
+                                 th:src="@{|/product/image(id=${product.id},index=${iStat.index},name='scaled1600')|}">
+                        </div>
+                        <a role="button" onclick="plusLightboxSlides(-1)">
+                            <span class="prev" aria-hidden="true">&#10094;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a role="button" onclick="plusLightboxSlides(1)">
+                            <span class="next" aria-hidden="true">&#10095;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <ol class="carousel-indicators d-md-none">
+                        <li th:id="'indicator-lb-' + ${iStat.index}" th:each="i, iStat : ${#numbers.sequence(0, product.imageCount - 1)}"
+                            th:onclick="'javascript:currentLightboxSlide(\'' + ${iStat.index} + '\');'"></li>
+                    </ol>
+                    <div class="lightbox-thumbs d-none d-md-flex col-lg-2">
+                        <th:block th:each="i, iStat : ${#numbers.sequence(0, product.imageCount - 1)}">
+                            <img th:id="'lightbox-thumb-' + ${iStat.index}" class="for-js product-thumbnail" alt=""
+                                 th:onclick="'javascript:currentLightboxSlide(\'' + ${iStat.index} + '\');'"
+                                 th:attr="srcset=|@{/product/image(id=${product.id},index=${iStat.index},name='scaled100')} 100w,
+                                        @{/product/image(id=${product.id},index=${iStat.index},name='scaled600')} 600w,
+                                        @{/product/image(id=${product.id},index=${iStat.index},name='scaled1600')} 1600w|"
+                                 sizes="100px"
+                                 th:src="@{|/product/image(id=${product.id},index=${iStat.index},name='scaled100')|}">
+                        </th:block>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

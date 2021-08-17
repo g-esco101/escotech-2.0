@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Orders | EscoTech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Displays all orders at EscoTech.">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/site.css}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+<th:block th:insert="_header :: header"></th:block>
+<th:block th:insert="_nav :: nav"></th:block>
+    <div class="container" >
+        <h1 class="text-center pt-3 mb-0 mb-md-3">Orders</h1>
+        <div class="row text-center mb-4" >
+            <div class="col" >
+                <h2 class="mb-3 font-weight-normal" th:utext="'Total Orders: ' + ${#lists.size(orders)}"></h2>
+            </div>
+        </div><!-- end row -->
+        <main id="main" class="table-responsive" >
+            <table class="table table-bordered table-striped">
+                <caption>Orders</caption>
+                <thead>
+                <tr>
+                    <th scope="col">Number</th>
+                    <th scope="col">Sale Method</th>
+                    <th scope="col">PayPal Status</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Total Cost</th>
+                    <th scope="col">View</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="order : ${orders}">
+                    <th scope="row" th:utext="${order.id}"></th>
+                    <td th:utext="${order.saleMethod}"></td>
+                    <td th:utext="${order.paypalStatus}"></td>
+                    <td th:utext="${order.firstName}"></td>
+                    <td th:utext="${order.lastName}"></td>
+                    <td th:utext="${order.email}"></td>
+                    <td th:utext="${#temporals.format(order.date)}"></td>
+                    <td th:utext="${#numbers.formatCurrency(order.totalCost)}"></td>
+                    <td><a th:href="@{|/admin/order/${order.id}|}">View</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </main>
+    </div><!-- end container -->
+<div class="flex-grow-1"></div>
+<th:block th:insert="_footer :: footer"></th:block>
+<script th:src="@{|/js/jquery-3.5.1.slim.min.js|}" ></script>
+<script th:src="@{|/js/bootstrap.bundle.js|}" ></script>
+</body>
+</html>

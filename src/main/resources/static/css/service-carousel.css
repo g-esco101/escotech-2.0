@@ -1,0 +1,134 @@
+.carousel-item {
+    height: 20rem;
+    width: 100%;
+    max-width: 100vw;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+/*md breakpoint*/
+@media (min-width: 768px) {
+    .carousel-item {
+        height: 32rem;
+    }
+    .carousel-indicators {
+        min-height: 100px;
+        position: relative;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        overflow: auto;
+    }
+    .carousel-indicators li {
+        display: block;
+        position: relative;
+        min-width: 100px;
+        min-height: 100px;
+        width: 100px;
+        height: 100px;
+
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    .carousel-indicators li:hover {
+        opacity: 1.0;
+    }
+    .carousel-indicators li.active {
+        width: 105px;
+        height: 105px;
+        margin: 0;
+        padding: 0;
+        border: 3px solid  #FFD700;
+    }
+    .indicator-image1{
+        background-image:url('../images/service-pics/service0-100.jpg');
+        position: relative;
+    }
+    .indicator-image2{
+        background-image:url('../images/service-pics/service1-100.jpg');
+        position: relative;
+    }
+    .indicator-image3{
+        background-image:url('../images/service-pics/service2-100.jpg');
+        position: relative;
+    }
+    .indicator-image4{
+        background-image:url('../images/service-pics/service3-100.jpg');
+        position: relative;
+    }
+    .indicator-image5{
+        background-image:url('../images/service-pics/service4-100.jpg');
+        position: relative;
+    }
+    .indicator-image6{
+        background-image:url('../images/service-pics/service5-100.jpg');
+        position: relative;
+    }
+    .indicator-image7{
+        background-image:url('../images/service-pics/service6-100.jpg');
+        position: relative;
+    }
+    .indicator-image8{
+        background-image:url('../images/service-pics/service7-100.jpg');
+        position: relative;
+    }
+    .indicator-image9{
+        background-image:url('../images/service-pics/service8-100.jpg');
+        position: relative;
+    }
+    .indicator-image10{
+        background-image:url('../images/service-pics/service9-100.jpg');
+        position: relative;
+    }
+}
+.service-carousel-image1{
+    box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.3);
+    background-image:url('../images/service-pics/service0-full.jpg');
+    position: relative;
+}
+.service-carousel-image2{
+    box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.3);
+    background-image:url('../images/service-pics/service1-full.jpg');
+    position: relative;
+}
+.service-carousel-image3{
+    box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.3);
+    background-image:url('../images/service-pics/service2-full.jpg');
+    position: relative;
+}
+.service-carousel-image4{
+    box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.3);
+    background-image:url('../images/service-pics/service3-full.jpg');
+    position: relative;
+}
+.service-carousel-image5{
+    box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.3);
+    background-image:url('../images/service-pics/service4-full.jpg');
+    position: relative;
+}
+.service-carousel-image6{
+    box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.3);
+    background-image:url('../images/service-pics/service5-full.jpg');
+    position: relative;
+}
+.service-carousel-image7{
+    box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.3);
+    background-image:url('../images/service-pics/service6-full.jpg');
+    position: relative;
+}
+.service-carousel-image8{
+    box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.3);
+    background-image:url('../images/service-pics/service7-full.jpg');
+    position: relative;
+}
+.service-carousel-image9{
+    box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.3);
+    background-image:url('../images/service-pics/service8-full.jpg');
+    position: relative;
+}
+.service-carousel-image10{
+    box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.3);
+    background-image:url('../images/service-pics/service9-full.jpg');
+    position: relative;
+}

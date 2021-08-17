@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Shopping Cart | EscoTech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Displays the contents of the shopping cart.">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/site.css}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+    <script th:src="@{|/js/picturefill.min.js|}" async></script>
+</head>
+<body class="d-flex flex-column min-vh-100">
+<th:block th:insert="_header :: header"></th:block>
+<th:block th:insert="_nav :: nav"></th:block>
+<main id="main">
+    <h1 class="text-center pt-3 mb-0 mb-md-3">Cart</h1>
+    <div class="container" th:if="${cart == null or cart.orderLines == null or cart.orderLines.isEmpty()}">
+        <h2 class="h5 text-center">Empty</h2>
+        <p class="text-center"><a th:href="@{/products}">Browse products</a></p>
+    </div>
+    <th:block th:if="${cart != null && cart.orderLines != null && !cart.orderLines.isEmpty()}">
+        <th:block th:insert="_cartSummary :: cartSummary"></th:block>
+        <div class="container" >
+            <div class="row justify-content-center">
+                <div th:each="orderLine, iStat : ${cart.orderLines}" class="col-12 col-md-6 col-lg-4 px-2 pb-5 d-flex justify-content-center">
+                    <article class="product-card card-shadow">
+                        <a th:href="@{|/products/${orderLine.productId}|}" class="btn-product">
+                            <img class="product-card-img" alt=""
+                                 th:attr="srcset=| @{/product/image(id=${orderLine.productId},index=0,name='img300')} 300w,
+                                        @{/product/image(id=${orderLine.productId},index=0,name='img600')} 600w,
+                                        @{/product/image(id=${orderLine.productId},index=0,name='img1600')} 1600w|"
+                                 sizes="300px"
+                                 th:src="@{|/product/image(id=${orderLine.productId},index=${iStat.index},name='img1600')|}" >
+                            <h2 class="product-model mb-0" th:utext="${orderLine.model}"></h2>
+                        </a>
+                        <div th:id="${orderLine.productId}" class="product-container-child">
+                            <p th:id="'unit-cost-' + ${orderLine.productId}" class="price text-center mb-1" th:utext="${#numbers.formatCurrency(orderLine.unitCost)}"></p>
+                            <div class="input-group text-center mb-1 cart-width">
+                                <button type="button" class="btn btn-dark fas fa-minus" th:onclick="'javascript:decrement(\'' + ${orderLine.productId} + '\');'">
+                                </button>
+                                <input type="text" th:onchange="'javascript:updateQuantity(\'' + ${orderLine.productId} + '\');'"  class="form-control text-center" th:value="${orderLine.quantity}"
+                                       name="quantity" id="quantity" min="0" th:max="${orderLine.inventoryCount}"
+                                       th:data-quant="${orderLine.productId}"/>
+                                <button type="button" class="btn btn-dark fas fa-plus" th:onclick="'javascript:increment(\'' + ${orderLine.productId} + '\');'">
+                                </button>
+                            </div>
+                            <div class="text-center mb-2">
+                                <a type="button" role="button" class="btn btn-danger btn-lg cart-width"
+                                   th:href="@{|/removeItem/${orderLine.productId}|}">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                    <span class="sr-only">Remove from cart</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div><!-- end row -->
+        </div>
+    </th:block>
+</main><!-- end container -->
+<div class="flex-grow-1"></div>
+<th:block th:insert="_footer :: footer"></th:block>
+<script th:src="@{|/js/jquery-3.5.1.min.js|}"></script>
+<script th:src="@{|/js/bootstrap.bundle.js|}"></script>
+<script th:src="@{|/js/site.js|}"></script>
+</body>
+</html>

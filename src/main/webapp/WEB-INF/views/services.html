@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Services | EscoTech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="EscoTech services information.">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/site.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/service-carousel.css}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<th:block th:insert="_header :: header"></th:block>
+<th:block th:insert="_nav :: nav"></th:block>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div id="carousel-thumb" class="carousel slide carousel-fade" data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active service-carousel-image1"></div>
+                    <div class="carousel-item service-carousel-image2"></div>
+                    <div class="carousel-item service-carousel-image3"></div>
+                    <div class="carousel-item service-carousel-image4"></div>
+                    <div class="carousel-item service-carousel-image5"></div>
+                    <div class="carousel-item service-carousel-image6"></div>
+                    <div class="carousel-item service-carousel-image7"></div>
+                    <div class="carousel-item service-carousel-image8"></div>
+                    <div class="carousel-item service-carousel-image9"></div>
+                    <div class="carousel-item service-carousel-image10"></div>
+                </div>
+                <a class="carousel-control-prev" href="#carousel-thumb" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel-thumb" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                <ol id="carousel-thumbnail-indicators" class="carousel-indicators">
+                    <li class="indicator-image1 active" data-target="#carousel-thumb" data-slide-to="0"></li>
+                    <li class="indicator-image2" data-target="#carousel-thumb" data-slide-to="1"></li>
+                    <li class="indicator-image3" data-target="#carousel-thumb" data-slide-to="2"></li>
+                    <li class="indicator-image4" data-target="#carousel-thumb" data-slide-to="3"></li>
+                    <li class="indicator-image5" data-target="#carousel-thumb" data-slide-to="4"></li>
+                    <li class="indicator-image6" data-target="#carousel-thumb" data-slide-to="5"></li>
+                    <li class="indicator-image7" data-target="#carousel-thumb" data-slide-to="6"></li>
+                    <li class="indicator-image8" data-target="#carousel-thumb" data-slide-to="7"></li>
+                    <li class="indicator-image9" data-target="#carousel-thumb" data-slide-to="8"></li>
+                    <li class="indicator-image10" data-target="#carousel-thumb" data-slide-to="9"></li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- end row -->
+    <div class="role row">
+        <main id="main" class="col-12">
+            <h1 class="pt-3 pt-md-0">Provide</h1>
+            <p>
+                EscoTech perturbs the time travel industry by providing solutions that are accessible to people from
+                every socioeconomic background.  We have phone booth style time machines that are available on-demand. We
+                can also create any type of time machine that you desire: cars, watches, shoes, glasses, etc.
+            </p>
+            <p>
+                EscoTech also provides one way and round trips to any where in spacetime. Please call or email for fare and fees
+            </p>
+            <h2>What We Service</h2>
+            <p>
+                We can repair and modify any type of time machine. For example, cars, watches, shoes, glasses, etc.
+            </p>
+        </main>
+    </div><!-- end row -->
+</div>
+<th:block th:insert="_footer :: footer"></th:block>
+<script th:src="@{|/js/jquery-3.5.1.slim.min.js|}"></script>
+<script th:src="@{|/js/bootstrap.bundle.js|}"></script>
+</body>
+</html>

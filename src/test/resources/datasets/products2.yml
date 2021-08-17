@@ -1,0 +1,34 @@
+products:
+  - id: 0
+    category: "SYNTHESIZER"
+    brand: "Roland"
+    model: "JXP with Programmer"
+    serialNumber: "SNRJX3P"
+    description: "This an immaculate JX3P, one of RolandÆs famous polysynths. While it doesnÆt have much onboard control over parameters, this particular machine comes with the much sought after programmer."
+    inventoryCount: 5
+    unitCost: "1500.00"
+    unitShipping: "200.00"
+    condition: "USED"
+    images: {id: 0, name: "img0", image: [0, 1, 0, 1, 0], image100: [0, 1, 0, 1, 0], img300: [0, 1, 0, 1, 0], img600: [0, 1, 0, 1, 0], image1200: [0, 1, 0, 1, 0], img1600: [0, 1, 0, 1, 0], scaled100: [0, 1, 0, 1, 0], imageScaled300: [0, 1, 0, 1, 0], scaled600: [0, 1, 0, 1, 0], imageScaled1200: [0, 1, 0, 1, 0], scaled1600: [0, 1, 0, 1, 0]}, {id: 1, name: "img1", image: [0, 1, 0, 1, 0], image100: [0, 1, 0, 1, 0], img300: [0, 1, 0, 1, 0], img600: [0, 1, 0, 1, 0], image1200: [0, 1, 0, 1, 0], img1600: [0, 1, 0, 1, 0], scaled100: [0, 1, 0, 1, 0], imageScaled300: [0, 1, 0, 1, 0], scaled600: [0, 1, 0, 1, 0], imageScaled1200: [0, 1, 0, 1, 0], scaled1600: [0, 1, 0, 1, 0]}
+  - id: 1
+    category: "SYNTHESIZER"
+    brand: "Roland"
+    model: "SH-101"
+    serialNumber: "SNRSH101"
+    description: "The SH-101 is an analog monosynth with 1 VCO as well as a Sub Oscillator perfect for basslines."
+    inventoryCount: 5
+    unitCost: "1250.00"
+    unitShipping: "150.00"
+    condition: "USED"
+    images: {id: 2, name: "img2", image: [0, 1, 0, 1, 0], image100: [0, 1, 0, 1, 0], img300: [0, 1, 0, 1, 0], img600: [0, 1, 0, 1, 0], image1200: [0, 1, 0, 1, 0], img1600: [0, 1, 0, 1, 0], scaled100: [0, 1, 0, 1, 0], imageScaled300: [0, 1, 0, 1, 0], scaled600: [0, 1, 0, 1, 0], imageScaled1200: [0, 1, 0, 1, 0], scaled1600: [0, 1, 0, 1, 0]}, {id: 3, name: "img3", image: [0, 1, 0, 1, 0], image100: [0, 1, 0, 1, 0], img300: [0, 1, 0, 1, 0], img600: [0, 1, 0, 1, 0], image1200: [0, 1, 0, 1, 0], img1600: [0, 1, 0, 1, 0], scaled100: [0, 1, 0, 1, 0], imageScaled300: [0, 1, 0, 1, 0], scaled600: [0, 1, 0, 1, 0], imageScaled1200: [0, 1, 0, 1, 0], scaled1600: [0, 1, 0, 1, 0]}
+  - id: 2
+    category: "SYNTHESIZER"
+    brand: "Yamaha"
+    model: "DX7"
+    serialNumber: "SNYDX7"
+    description: "Not much needs to be said about the DX7. ItÆs a favorite of Brian Eno as well as countless other musicians and is noted for its approach to digital synthesis. This DX7 just had a battery change and has all presets loaded."
+    inventoryCount: 5
+    unitCost: "600.00"
+    unitShipping: "100.00"
+    condition: "USED"
+    images: {id: 4, name: "img4", image: [0, 1, 0, 1, 0], image100: [0, 1, 0, 1, 0], img300: [0, 1, 0, 1, 0], img600: [0, 1, 0, 1, 0], image1200: [0, 1, 0, 1, 0], img1600: [0, 1, 0, 1, 0], scaled100: [0, 1, 0, 1, 0], imageScaled300: [0, 1, 0, 1, 0], scaled600: [0, 1, 0, 1, 0], imageScaled1200: [0, 1, 0, 1, 0], scaled1600: [0, 1, 0, 1, 0]}, {id: 5, name: "img5", image: [0, 1, 0, 1, 0], image100: [0, 1, 0, 1, 0], img300: [0, 1, 0, 1, 0], img600: [0, 1, 0, 1, 0], image1200: [0, 1, 0, 1, 0], img1600: [0, 1, 0, 1, 0], scaled100: [0, 1, 0, 1, 0], imageScaled300: [0, 1, 0, 1, 0], scaled600: [0, 1, 0, 1, 0], imageScaled1200: [0, 1, 0, 1, 0], scaled1600: [0, 1, 0, 1, 0]}

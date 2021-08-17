@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Order | EscoTech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Displays an order at EscoTech.">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/site.css}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<th:block th:insert="_header :: header"></th:block>
+<th:block th:insert="_nav :: nav"></th:block>
+<main id="main" class="container" >
+    <h1 class="text-center pt-3 mb-0 mb-md-3" th:utext="'Order ' + ${order.id}"></h1>
+    <div class="table-responsive" >
+        <table class="table table-bordered table-striped">
+            <caption>Payment</caption>
+            <thead>
+            <tr>
+                <th scope="col">PayPal Id</th>
+                <th scope="col">PayPal Status</th>
+                <th scope="col">Total</th>
+                <th scope="col">Sale Method</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:utext="${order.paypalId}"></td>
+                <td th:utext="${order.paypalStatus}"></td>
+                <td th:utext="${#numbers.formatCurrency(order.totalCost)}"></td>
+                <td th:utext="${order.saleMethod}"></td>
+                <td th:utext="${#temporals.format(order.date)}"></td>
+                <td th:utext="${#temporals.format(order.time)}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <section class="card mt-4 mb-4">
+                <div class="card-header text-center">
+                    <h2 class="card-title">Recipient</h2>
+                </div>
+                <ul class="card-body text-center">
+                    <li class="card-text" th:utext="${order.firstName} + ' ' + ${order.lastName}"></li>
+                    <li class="card-text" th:utext="${order.phone}"></li>
+                    <li class="card-text" th:utext="${order.email}"></li>
+                </ul>
+            </section><!-- card end -->
+        </div>
+        <div class="col-12 col-md-6">
+            <section class="card mt-4 mb-4">
+                <div class="card-header text-center">
+                    <h2 class="card-title">Shipping</h2>
+                </div>
+                <th:block  th:if="${order.shippingMethod.name() != 'PICKPUP'}" >
+                    <ul class="card-body text-center">
+                        <li class="card-text" th:utext="${order.address1}"></li>
+                        <li class="card-text" th:utext="${order.address2}"></li>
+                        <li class="card-text" th:utext="${order.city} + ', ' + ${order.state} + ' ' + ${order.zip}"></li>
+                        <li class="card-text" th:utext="${order.country}"></li>
+                    </ul>
+                </th:block>
+            </section><!-- card end -->
+        </div>
+    </div><!-- row end -->
+    <div class="table-responsive" >
+        <table class="table table-bordered table-striped">
+            <caption>Products and Cost</caption>
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Category</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Model</th>
+                <th scope="col">Serial</th>
+                <th scope="col">Condition</th>
+                <th scope="col">Shipping</th>
+                <th scope="col">Cost</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="orderLine : ${order.orderLines}">
+                <th scope="row" th:text="${orderLine.productId}"></th>
+                <td th:text="${orderLine.category}"></td>
+                <td th:text="${orderLine.brand}"></td>
+                <td th:text="${orderLine.model}"></td>
+                <td th:text="${orderLine.serialNumber}"></td>
+                <td th:text="${orderLine.condition.displayName}"></td>
+                <td th:text="${#numbers.formatCurrency(orderLine.unitShipping)}"></td>
+                <td th:text="${#numbers.formatCurrency(orderLine.unitCost)}"></td>
+                <td th:text="${orderLine.quantity}"></td>
+                <td th:text="${#numbers.formatCurrency(orderLine.lineTotal)}"></td>
+            </tr>
+            <tr>
+                <th scope="row" colspan="9" class="text-right">Subtotal(<span th:utext="${order.totalQuantity}"></span> items):</th>
+                <td colspan="1" th:utext="${#numbers.formatCurrency(order.subTotal)}"></td>
+            </tr>
+            <tr>
+                <th scope="row" colspan="9" class="text-right">Tax:</th>
+                <td colspan="1" th:utext="${#numbers.formatCurrency(order.tax)}"></td>
+            </tr>
+            <tr>
+                <th scope="row" colspan="9" class="text-right">Shipping:</th>
+                <td colspan="1" th:utext="${#numbers.formatCurrency(order.totalShipping)}"></td>
+            </tr>
+            <tr>
+                <th scope="row" colspan="9" class="text-right">Total:</th>
+                <td colspan="1" th:utext="${#numbers.formatCurrency(order.totalCost)}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main><!-- container end -->
+<th:block th:insert="_footer :: footer"></th:block>
+<script th:src="@{|/js/jquery-3.5.1.slim.min.js|}" ></script>
+<script th:src="@{|/js/bootstrap.bundle.js|}" ></script>
+</body>
+</html>

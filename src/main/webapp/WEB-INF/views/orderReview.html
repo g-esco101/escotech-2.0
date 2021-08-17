@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Order Review | EscoTech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Displays the order information.">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/site.css}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://www.paypal.com/sdk/js?client-id=AVNHNiHWOabcK_ya8nFecD_wiUqiHTLAc_BFwcfvBT1GGgrJlaH7DzvWrKxS2bwWhT3RhqZI1onDcD69&disable-funding=credit,card"></script>
+</head>
+<body>
+<th:block th:insert="_header :: header"></th:block>
+<th:block th:insert="_nav :: nav"></th:block>
+<main id="main" class="container">
+    <h1 class="text-center pt-3 mb-0 mb-md-3">Order Review</h1>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <caption>Products and Cost</caption>
+            <thead>
+            <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Item</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="orderLine : ${cart.orderLines}">
+                <td th:text="${orderLine.category.displayName}"></td>
+                <td th:text="${orderLine.brand} + ' ' + ${orderLine.model}"></td>
+                <td th:text="${#numbers.formatCurrency(orderLine.unitCost)}"></td>
+                <td th:text="${orderLine.quantity}"></td>
+                <td th:text="${#numbers.formatCurrency(orderLine.lineTotal)}"></td>
+            </tr>
+            <tr>
+                <th scope="row" colspan="4" class="text-right">Subtotal:</th>
+                <td colspan="1" th:utext="${#numbers.formatCurrency(cart.subTotal)}"></td>
+            </tr>
+            <tr>
+                <th scope="row" colspan="4" class="text-right">Tax:</th>
+                <td colspan="1" th:utext="${#numbers.formatCurrency(cart.tax)}"></td>
+            </tr>
+            <tr>
+                <th scope="row" colspan="4" class="text-right">Shipping:</th>
+                <td colspan="1" th:utext="${#numbers.formatCurrency(cart.totalShipping)}"></td>
+            </tr>
+            <tr>
+                <th scope="row" colspan="4" class="text-right">Total:</th>
+                <td colspan="1" th:utext="${#numbers.formatCurrency(cart.totalCost)}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <section class="card mt-4 mb-4">
+                <div class="card-header text-center">
+                    <h2 class="card-title">Purchaser</h2>
+                </div>
+                <ul class="card-body text-center">
+                    <li class="card-text" th:utext="${purchaserForm.firstName} + ' ' + ${purchaserForm.lastName}"></li>
+                    <li class="card-text" th:utext="${purchaserForm.phone}"></li>
+                    <li class="card-text" th:utext="${purchaserForm.email}"></li>
+                    <li class="card-text" th:utext="${purchaserForm.shippingMethod.displayName}"></li>
+                </ul>
+                <div class="card-footer">
+                    <a type="button" class="btn btn-primary btn-lg btn-block" th:href="@{|/purchaser|}">Update Recipient</a>
+                </div>
+            </section><!-- card end -->
+        </div>
+        <div class="col-12 col-md-6">
+            <section class="card mt-4 mb-4">
+                <div class="card-header text-center">
+                    <h2 class="card-title">Shipping</h2>
+                </div>
+                <th:block  th:if="${purchaserForm.shippingMethod.name() != 'PICKPUP'}" >
+                    <ul class="card-body text-center">
+                        <li class="card-text" th:utext="${addressForm.address1}"></li>
+                        <li class="card-text" th:utext="${addressForm.address2}"></li>
+                        <li class="card-text" th:utext="${addressForm.city} + ', ' + ${addressForm.state} + ' ' + ${addressForm.zip}"></li>
+                        <li class="card-text" th:utext="${addressForm.country}"></li>
+                    </ul>
+                </th:block>
+                <div class="card-footer">
+                    <a type="button" class="btn btn-primary btn-lg btn-block" th:href="@{|/address|}">Update Shipping</a>
+                </div>
+            </section><!-- card end -->
+        </div>
+    </div><!-- row end -->
+</main><!-- end row -->
+<div sec:authorize="hasRole('ROLE_USER')" class="row text-center mb-4 mt-4">
+    <div class="col-12 col-md-4 offset-md-4">
+        <form method="post" th:action="@{|/admin/order/create|}">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Admin Checkout</button>
+        </form>
+    </div>
+</div><!-- end row -->
+<div class="row text-center mb-4 mt-4">
+    <div class="col-12 col-md-4 offset-md-4">
+        <h5>Checkout with PayPal or as a PayPal Guest</h5>
+        <div id="paypal-button-container"></div>
+    </div>
+</div><!-- end row -->
+</div><!-- container end -->
+<th:block th:insert="_transaction :: transaction"></th:block>
+<th:block th:insert="_footer :: footer"></th:block>
+<script>
+    paypal.Buttons({
+        createOrder: function (data, actions) {
+            // Set up the transaction
+            return fetch('create/order', {
+                method: 'post',
+                headers: {
+                    'content-type': 'text/plain'
+                },
+            }).then(function (response) {
+                return response.text();
+            }).then(function (data) {
+                return data; // Use the same key name for order ID on the client and server
+            });
+        },
+        onApprove: function (data, actions) {
+            // Capture the funds from the transaction
+            return fetch('paypal/capture', {
+                method: 'post',
+                headers: {
+                    'content-type': 'text/plain'
+                },
+            }).then(function (response) {
+                return response.text();
+            }).then(function (data) {
+                document.getElementById('transModalBody').innerText = data;
+                $('#transModal').modal('show');
+            })
+        }
+    }).render('#paypal-button-container');
+</script>
+<script th:src="@{|/js/jquery-3.5.1.slim.min.js|}"></script>
+<script th:src="@{|/js/bootstrap.bundle.js|}"></script>
+</body>
+</html>

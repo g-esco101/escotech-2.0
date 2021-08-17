@@ -1,0 +1,394 @@
+# A dataset that contains the following: 6 images; 3 products; 6 order_line; and 4 orders.
+# Products Table contains the following products:
+# 0 id, 1 image, 0 inventory; 1 id, 2 images, 5 inventory; 2 id, 3 images; 10 inventory.
+images:
+  - id: 1
+    name: image1
+    img300: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    img600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    img1600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    scaled100: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    scaled600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    scaled1600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+
+  - id: 2
+    name: image2
+    img300: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    img600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    img1600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    scaled100: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    scaled600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    scaled1600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+
+  - id: 3
+    name: image3
+    img300: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    img600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    img1600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    scaled100: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    scaled600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    scaled1600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+
+  - id: 4
+    name: image4
+    img300: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    img600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    img1600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    scaled100: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    scaled600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    scaled1600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+
+  - id: 5
+    name: image5
+    img300: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    img600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    img1600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    scaled100: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    scaled600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    scaled1600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+
+  - id: 6
+    name: image6
+    img300: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    img600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    img1600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    scaled100: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    scaled600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+    scaled1600: !!binary |
+      R0lGODdhDQAIAIAAAAAAANn
+      Z2SwAAAAADQAIAAACF4SDGQ
+      ar3xxbJ9p0qa7R0YxwzaFME
+      1IAADs=
+
+order_lines:
+  - id: 1
+    product_id: 1
+    category: SYNTH
+    brand: Roland
+    model: SH-101
+    serial_number: SNRSH101
+    unit_cost: 1250
+    unit_shipping: 150
+    condition: USED
+    quantity: 2
+
+  - id: 2
+    product_id: 2
+    category: SYNTH
+    brand: Yamaha
+    model: DX7
+    serial_number: SNYDX7
+    unit_cost: 600
+    unit_shipping: 100
+    condition: USED
+    quantity: 3
+
+  - id: 3
+    product_id: 0
+    category: SYNTH
+    brand: Roland
+    model: JXP with Programmer
+    serial_number: SNRJX3P
+    unit_cost: 1500
+    unit_shipping: 200
+    condition: USED
+    quantity: 2
+
+  - id: 4
+    product_id: 1
+    brand: Roland
+    model: SH-101
+    serial_number: SNRSH101
+    unit_cost: 1250
+    unit_shipping: 150
+    condition: USED
+    quantity: 1
+
+  - id: 5
+    product_id: 2
+    category: SYNTH
+    brand: Yamaha
+    model: DX7
+    serial_number: SNYDX7
+    unit_cost: 600
+    unit_shipping: 100
+    condition: USED
+    quantity: 1
+
+  - id: 6
+    product_id: 6
+    category: SYNTH
+    brand: Roland
+    model: JXP with Programmer
+    serial_number: SNRJX3P
+    unit_cost: 1500
+    unit_shipping: 200
+    condition: USED
+    quantity: 1
+
+orders:
+  - id: 1
+    paypal_id: 1
+    paypal_status: COMPLETE
+    first_name: Stevie
+    last_name: Wonder
+    phone:
+    email: govinda.escobar@gmail.com
+    address1: 8844 Camelback Rd
+    address2:
+    city: Quebic City
+    state: Quebic
+    zip: 85015
+    country: 1
+    date: 2021-03-20
+    time: "10:57:26"
+    sale_method: WEB
+    shipping_method: TWOSEV
+    tax: 237.50
+
+  - id: 2
+    paypal_id: 2
+    paypal_status: COMPLETE
+    first_name: Dale
+    last_name: Shannon
+    phone:
+    email: govinda.escobar@gmail.com
+    address1: 71425 Santa Monica Blvd
+    address2:
+    city: Los Angeles
+    state: CA
+    zip: 90025
+    country: 0
+    date: 2021-04-01
+    time: "10:57:26"
+    sale_method: WEB
+    shipping_method: TWOSEV
+    tax: 456.00
+
+  - id: 3
+    paypal_id: 3
+    paypal_status: COMPLETE
+    first_name: Week
+    last_name: End
+    phone:
+    email: govinda.escobar@gmail.com
+    address1: 1257 Weyburn Blvd
+    address2:
+    city: Los Angeles
+    state: CA
+    zip: 90025
+    country: 0
+    date: 2021-04-20
+    time: "10:57:26"
+    sale_method: WEB
+    shipping_method: TWOSEV
+    tax: 175.75
+
+  - id: 4
+    paypal_id: 4
+    paypal_status: COMPLETE
+    first_name: Miley
+    last_name: Cyrus
+    phone:
+    email: govinda.escobar@gmail.com
+    address1: 6655 Wilshire Blvd
+    address2:
+    city: Los Angeles
+    state: CA
+    zip: 90025
+    country: 0
+    date: 2021-03-11
+    time: "10:57:26"
+    sale_method: WEB
+    shipping_method: TWOSEV
+    tax: 142.50
+
+orders_order_lines:
+  - {order_id: 1, order_lines_id: 1}
+  - {order_id: 2, order_lines_id: 2}
+  - {order_id: 2, order_lines_id: 3}
+  - {order_id: 3, order_lines_id: 4}
+  - {order_id: 3, order_lines_id: 5}
+  - {order_id: 4, order_lines_id: 6}
+
+products:
+  - id: 1
+    category: SYNTH
+    brand: Roland
+    model: SH-101
+    serial_number: SNRSH101
+    description: The SH-101 is an analog monosynth with 1 VCO as well as a Sub Oscillator perfect for basslines.
+    inventory_count: 10
+    unit_cost: 1250
+    unit_shipping: 150
+    condition: USED
+
+  - id: 2
+    category: SYNTH
+    brand: Yamaha
+    model: DX7
+    serial_number: SNYDX7
+    description: Not much needs to be said about the DX7. ItÆs a favorite of Brian Eno as well as countless other musicians and is noted for its approach to digital synthesis. This DX7 just had a battery change and has all presets loaded.
+    inventory_count: 20
+    unit_cost: 600
+    unit_shipping: 100
+    condition: USED
+
+  - id: 3
+    category: SYNTH
+    brand: Roland
+    model: JXP with Programmer
+    serial_number: SNRJX3P
+    description: This an immaculate JX3P, one of RolandÆs famous polysynths. While it doesnÆt have much onboard control over parameters, this particular machine comes with the much sought after programmer.
+    inventory_count: 0
+    unit_cost: 1500
+    unit_shipping: 200
+    condition: USED
+
+products_images:
+  - {product_id: 1, images_id: 1}
+  - {product_id: 1, images_id: 2}
+  - {product_id: 2, images_id: 3}
+  - {product_id: 2, images_id: 4}
+  - {product_id: 2, images_id: 5}
+  - {product_id: 3, images_id: 6}

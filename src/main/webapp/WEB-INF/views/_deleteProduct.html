@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Delete Product | EscoTech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A modal that is used to confirm the deletion of a product.">
+</head>
+<body>
+<div class="modal fade" tabindex="-1" th:id="modal-delete+${product.id}" role="dialog" th:fragment="deleteProduct">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-img"></div>
+                <h2 class="h5 modal-title">Delete Product</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Delete <span th:utext="${product.model}"></span> from database?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <a type="button" role="button" class="btn btn-danger" th:href="@{|/admin/product/delete/${product.id}|}">Yes</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

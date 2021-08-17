@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Footer | EscoTech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Displays the location, hours, phone number, email, and social media links.">
+</head>
+<body>
+<footer th:fragment="footer" role="contentinfo">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center">
+                <section>
+                    <h2 class="d-none d-md-block">Location</h2>
+                    <ul class="text-center text-md-left pt-1 pt-md-0">
+                        <li>2502 E Camelback Rd</li>
+                        <li>Suite 213</li>
+                        <li>Phoenix, AZ 85016</li>
+                    </ul>
+                </section>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 d-none d-md-flex justify-content-center">
+                <section>
+                    <h2>Hours</h2>
+                    <ul>
+                        <li>Mon - Fri 9:00am - 5:00pm</li>
+                    </ul>
+                </section>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center">
+                <section>
+                    <h2 class="d-none d-md-block">Contact</h2>
+                    <ul class="text-center text-md-left pt-3 pt-md-0">
+                        <li><a href="tel:+16021234567">+1-602-123-4567</a></li>
+                        <li><a href="mailto:govinda.escobar@gmail.com">govinda.escobar@gmail.com</a></li>
+                    </ul>
+                </section>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center">
+                <section>
+                    <div class="row">
+                        <div class="col-12 mt-2 text-center text-md-left pb-md-3 justify-content-around">
+                            <a class="mx-2" href="https://www.instagram.com/xxxxxxx/">
+                                <i class="fab fa-instagram"></i>
+                                <span class="sr-only">instagram</span>
+                            </a>
+                            <a class="mx-2" href="https://www.facebook.com/xxxxxxx/">
+                                <i class="fab fa-facebook-f"></i>
+                                <span class="sr-only">facebook</span>
+                            </a>
+                            <a class="mx-2" href="https://www.yelp.com/biz/xxxxxxx">
+                                <i class="fab fa-yelp"></i>
+                                <span class="sr-only">yelp</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="d-md-none text-center pt-3 pt-md-0">
+                                <em class="paypal-gold">PayPal</em> checkout
+                            </p>
+                            <div class="img-fluid d-none d-md-block secured-by-paypal">
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

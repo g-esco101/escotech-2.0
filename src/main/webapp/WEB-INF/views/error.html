@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Error Page | EscoTech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Displays an error.">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/site.css}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        table td{
+            vertical-align:top;
+            border:solid 1px #888;
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+<th:block th:insert="_header :: header"></th:block>
+<th:block th:insert="_nav :: nav"></th:block>
+<main id="main" class="container" >
+    <h1 class="text-center pt-3 mb-0 mb-md-3">Error Page</h1>
+    <div class="table-responsive" >
+        <table class="mx-auto w-auto">
+            <tr>
+                <td>Date</td>
+                <td th:text="${timestamp}"/>
+            </tr>
+            <tr>
+                <td>Path</td>
+                <td th:text="${path}"/>
+            </tr>
+            <tr>
+                <td>Error</td>
+                <td th:text="${error}"/>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td th:text="${status}"/>
+            </tr>
+            <tr>
+                <td>Message</td>
+                <td th:text="${message}"/>
+            </tr>
+            <tr>
+                <td>Exception</td>
+                <td th:text="${exception}"/>
+            </tr>
+            <tr>
+                <td>Trace</td>
+                <td>
+                    <pre th:text="${trace}"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</main>
+<th:block th:insert="_footer :: footer"></th:block>
+</body>
+</html>

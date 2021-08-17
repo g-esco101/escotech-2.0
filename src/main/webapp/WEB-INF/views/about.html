@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>About | EscoTech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Displays information about EscoTech.">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/site.css}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<th:block th:insert="_header :: header"></th:block>
+<th:block th:insert="_nav :: nav"></th:block>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <img th:src="@{/images/phone-booths-1224447.jpg}" alt="state of the art tools" class="img-fluid"/>
+        </div>
+    </div><!-- end row -->
+    <main id="main" class="row">
+        <article class="col-12">
+            <h1 class="pt-3">About</h1>
+            <p>
+                EscoTech was founded in 2020 during the COVID 19 pandemic to allow people to escape to a time before or
+                after the pandemic - to a time when the economy is open and people could work. This allowed non-essential
+                workers a means to still earn a living, so they could support their households. Mr. Escobar was determined
+                to offer people an affordable way to get back to work and keep the economy going.
+            </p>
+            <h2 class="h4">The People</h2>
+            <p>
+                Govinda Escobar is the owner and sole employee of EscoTech. He has decades of experience creating and
+                repairing time machines. He holds a in physics from UCLA and a degree in computer science from ASU.
+                His interests include cosmology, astronomy, and software engineering. His hobbies include weight
+                lifting, meditation, yoga, dancing, cooking, and attending cultural events.
+            </p>
+            <h2>Operations</h2>
+            <h3 class="h4">Warranty</h3>
+            <p>
+                All time machines created by EscoTech and all repairs come with a lifetime warranty.
+            </p>
+            <h3 class="h4">Guarantee</h3>
+            <p>
+                Your satisfaction is guaranteed or you get a full refund.
+            </p>
+            <h3 class="h4">Layaway</h3>
+            <p>
+                Please talk to Govinda about a payment plan that you can afford.
+            </p>
+            <h2>Location & Hours</h2>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <ul>
+                        <li>EscoTech</li>
+                        <li>2502 E Camelback Rd</li>
+                        <li>Suite 213</li>
+                        <li>Phoenix, AZ 85016</li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-4">
+                    <ul>
+                        <li>Mon - Fri: 9:00 am - 5:00pm</li>
+                        <li class="pt-2"><a href="tel:+16021234567">+1-602-123-4567</a></li>
+                        <li><a href="mailto:govinda.escobar@gmail.com">govinda.escobar@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-4">
+                    <iframe class="img-fluid" title="google maps"
+                            src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=2502%20Camelback%20Rd,%20Suite%20213+(EscoTech)&amp;t=&amp;z=11&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                </div>
+            </div><!-- end row -->
+        </article>
+    </main>
+</div>
+<th:block th:insert="_footer :: footer"></th:block>
+<script th:src="@{|/js/jquery-3.5.1.slim.min.js|}"></script>
+<script th:src="@{|/js/bootstrap.bundle.js|}"></script>
+</body>
+</html>

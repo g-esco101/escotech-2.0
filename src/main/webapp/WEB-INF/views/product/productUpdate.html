@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Update Product | EscoTech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Update a product or service at EscoTech.">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/site.css}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+    <script th:src="@{|/js/picturefill.min.js|}" async></script>
+</head>
+<body>
+<th:block th:insert="_header :: header"></th:block>
+<th:block th:insert="_nav :: nav"></th:block>
+<main id="main" class="container">
+    <h1 class="text-center pt-3 mb-0 mb-md-3">Update Product</h1>
+    <form th:object="${productForm}" th:action="@{/admin/product/update(id=${productForm.id})}" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-6 order-md-0 col-12 order-1">
+                <div class="row justify-content-center">
+                    <div class="product-update-container card-shadow" th:each="imageForm, iStat : ${productForm.imageIds}">
+                        <label class="mb-0">
+                            <img class="product-update-img"
+                                 th:attr="srcset=|@{/product/image(id=${productForm.id},index=${iStat.index},name='scaled100')} 100w,
+                                        @{/product/image(id=${productForm.id},index=${iStat.index},name='scaled600')} 600w,
+                                        @{/product/image(id=${productForm.id},index=${iStat.index},name='scaled1600')} 1600w|"
+                                 sizes="150px"
+                                 th:src="@{|/product/image(id=${productForm.id},index=${iStat.index},name='img600')|}" />
+                            <input type="checkbox" name="imageIds" th:value="${imageForm}"/>
+                            Delete
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 order-md-1 col-12 order-0">
+                <div class="form-label-group">
+                    <select name="category" id="category" class="form-control">
+                        <option th:each="categoryOpt : ${T(com.escotech.enums.Category).values()}"
+                                th:value="${categoryOpt}" th:text="${categoryOpt.displayName}"
+                                th:selected="${categoryOpt==productForm.category}"></option>
+                    </select>
+                    <span th:if="${#fields.hasErrors('category')}" th:errors="*{category}" class="text-danger"></span>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="text" th:field="*{brand}" class="form-control" id="brand" placeholder="Brand"
+                           maxlength="50" autofocus>
+                    <label for="brand">Brand</label>
+                    <span th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}" class="text-danger"></span>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="text" th:field="*{model}" class="form-control" id="model" placeholder="Model"
+                           maxlength="50">
+                    <label for="model">Model</label>
+                    <span th:if="${#fields.hasErrors('model')}" th:errors="*{model}" class="text-danger"></span>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="text" th:field="*{serialNumber}" id="serialNumber" class="form-control"
+                           placeholder="Serial Number" maxlength="50">
+                    <label for="serialNumber">Serial Number</label>
+                    <span th:if="${#fields.hasErrors('serialNumber')}" th:errors="*{serialNumber}"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="form-label-group">
+                    <textarea type="text" rows="4" th:field="*{description}" id="description" class="form-control"
+                              placeholder="Description" maxlength="1500">
+                        <label for="description">Description</label>
+                    </textarea>
+                    <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="text" th:field="*{inventoryCount}" class="form-control" id="inventoryCount"
+                           placeholder="Inventory Count">
+                    <label for="inventoryCount">Inventory Count</label>
+                    <span th:if="${#fields.hasErrors('inventoryCount')}" th:errors="*{inventoryCount}"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="text" th:field="*{unitCost}" class="form-control" id="unitCost"
+                           placeholder="Unit Cost">
+                    <label for="unitCost">Unit Cost</label>
+                    <span th:if="${#fields.hasErrors('unitCost')}" th:errors="*{unitCost}" class="text-danger"></span>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="text" th:field="*{unitShipping}" class="form-control" id="unitShipping"
+                           placeholder="Unit Shipping">
+                    <label for="unitShipping">Unit Shipping</label>
+                    <span th:if="${#fields.hasErrors('unitShipping')}" th:errors="*{unitShipping}"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="form-label-group">
+                    <select name="condition" id="condition" class="form-control">
+                        <option th:each="conditionOpt : ${T(com.escotech.enums.Condition).values()}"
+                                th:value="${conditionOpt}" th:text="${conditionOpt.displayName}"
+                                th:selected="${conditionOpt==productForm.condition}"></option>
+                    </select>
+                    <span th:if="${#fields.hasErrors('condition')}" th:errors="*{condition}" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="file" th:field="*{fileData}" class="form-control-file" id="fileData" multiple>
+                    <label for="fileData">Add Image(s)</label>
+                    <p th:if="${#fields.hasErrors('fileData')}" th:errors="*{fileData}" class="text-danger"></p>
+                    <p th:if="${imgsNotAdded}" class="text-danger" th:utext="${imgsNotAdded}"></p>
+                    <p th:if="${IOException}" class="text-danger" th:utext="${IOException}"></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col form-float">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Send</button>
+            </div>
+        </div>
+    </form>
+</main>
+<th:block th:insert="_footer :: footer"></th:block>
+<script th:src="@{|/js/jquery-3.5.1.slim.min.js|}"></script>
+<script th:src="@{|/js/bootstrap.bundle.js|}"></script>
+</body>
+</html>

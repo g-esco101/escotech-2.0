@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title data-th-remove="all">Template for HTML email (editable)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div style="background-color: #ccc; background-image: url(images/background.png)"
+     data-th-style="|background-color: #ccc; background-image: url(cid:background)|">
+    <div style="padding: 40px;">
+        <div style="margin-left: auto; margin-right: auto; min-width: 320px;">
+            <div style="background-color: #333; padding: 4px 4px 2px 4px;">
+                <div style="background-image: url(images/logo-background.png);"
+                     data-th-style="|background-image: url(cid:logo-background)|">
+                    <img src="images/escotech-logo.png" data-th-src="|cid:escotech-logo|" />
+                </div>
+            </div>
+            <div style="padding: 15px 15px 30px 15px; font-family: Oswald, Verdana, Arial, Helvetica, sans-serif; font-size:1em; background-color: #fff; color:#333;">
+                <p>Hello <b data-th-text="${order.firstName}"></b></p>
+                <p>These are the details of your recent purchase with EscoTech.</p>
+                <h1 style="text-align: center;" th:utext="'Order #' + ${order.id}"></h1>
+                <div style="display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;" >
+                    <table style="width: 100%; margin-bottom: 1rem; color: #212529; border-collapse: collapse; border: 0;">
+                        <thead>
+                        <tr>
+                            <th scope="col">Category</th>
+                            <th scope="col">Item</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <th:block th:each="orderLine, iStat : ${order.orderLines}">
+                            <tr th:style="${iStat.index % 2 == 1} ? 'background-color: rgba(0, 0, 0, 0.05);'">
+                                <td th:utext="${orderLine.category.displayName}"></td>
+                                <td th:utext="${orderLine.brand} + ' ' + ${orderLine.model}"></td>
+                                <td th:utext="'$' + ${#numbers.formatDecimal(orderLine.unitCost,1,2,'COMMA')}"></td>
+                                <td th:utext="${orderLine.quantity}"></td>
+                                <td th:utext="'$' + ${#numbers.formatDecimal(orderLine.lineTotal,1,2,'COMMA')}"></td>
+                            </tr>
+                        </th:block>
+                        <tr th:style="${#lists.size(order.orderLines) % 2 == 1} ? 'background-color: rgba(0, 0, 0, 0.05);'">
+                            <th scope="row" colspan="4" style="text-align: right;">Subtotal:</th>
+                            <td colspan="1" th:utext="'$' + ${#numbers.formatDecimal(order.subTotal,1,2,'COMMA')}"></td>
+                        </tr>
+                        <tr th:style="${(#lists.size(order.orderLines) + 1) % 2 == 1} ? 'background-color: rgba(0, 0, 0, 0.05);'">
+                            <th scope="row" colspan="4" style="text-align: right;">Tax:</th>
+                            <td colspan="1" th:utext="'$' + ${#numbers.formatDecimal(order.tax,1,2,'COMMA')}"></td>
+                        </tr>
+                        <tr th:style="${#lists.size(order.orderLines) % 2 == 1} ? 'background-color: rgba(0, 0, 0, 0.05);'">
+                            <th scope="row" colspan="4" style="text-align: right;">Shipping:</th>
+                            <td colspan="1" th:utext="'$' + ${#numbers.formatDecimal(order.totalShipping,1,2,'COMMA')}"></td>
+                        </tr>
+                        <tr th:style="${(#lists.size(order.orderLines) + 1) % 2 == 1} ? 'background-color: rgba(0, 0, 0, 0.05);'">
+                            <th scope="row" colspan="4" style="text-align: right;">Total:</th>
+                            <td colspan="1" th:utext="'$' + ${#numbers.formatDecimal(order.totalCost,1,2,'COMMA')}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; margin-right: -15px; margin-left: -15px;">
+                    <div style="position: relative; width: 100%; padding-right: 15px; padding-left: 15px;">
+                        <!-- new recipient card 3/4/2021 -->
+                        <div style="position: relative; display: -ms-flexbox; display: flex; -ms-flex-direction: column; flex-direction: column; min-width: 0; word-wrap: break-word; background-color: #fff; background-clip: border-box;border: 1px solid rgba(0, 0, 0, 0.125); border-radius: 0.25rem; margin-top: 1.5rem; margin-bottom: 1.5rem;">
+                            <div style="padding: 0.75rem 1.25rem; margin-bottom: 0; background-color: rgba(0, 0, 0, 0.03); border-bottom: 1px solid rgba(0, 0, 0, 0.125); text-align: center;">
+                                <h2 style="margin-bottom: 0.75rem;">Recipient</h2>
+                            </div>
+                            <ul style="-ms-flex: 1 1 auto; flex: 1 1 auto; min-height: 1px; padding: 1.25rem; text-align: center; list-style-type:none; margin: 0; border: none;">
+                                <li th:utext="${order.firstName} + ' ' + ${order.lastName}"></li>
+                                <li th:utext="${order.phone}"></li>
+                                <li style="margin-bottom: 0;" th:utext="${order.email}"></li>
+                            </ul>
+                        </div><!-- new recipient card end 3/4/2021 -->
+                    </div>
+                    <div style="position: relative; width: 100%; padding-right: 15px; padding-left: 15px;">
+                        <!-- new shipping card 3/4/2021 -->
+                        <div style="position: relative; display: -ms-flexbox; display: flex; -ms-flex-direction: column; flex-direction: column; min-width: 0; word-wrap: break-word; background-color: #fff; background-clip: border-box; border: 1px solid rgba(0, 0, 0, 0.125); border-radius: 0.25rem; margin-top: 1.5rem; margin-bottom: 1.5rem;">
+                            <div style="padding: 0.75rem 1.25rem; margin-bottom: 0; background-color: rgba(0, 0, 0, 0.03); border-bottom: 1px solid rgba(0, 0, 0, 0.125); text-align: center;">
+                                <h2 style="margin-bottom: 0.75rem;">Shipping</h2>
+                            </div>
+                            <ul style="-ms-flex: 1 1 auto; flex: 1 1 auto; min-height: 1px; padding: 1.25rem; text-align: center; list-style-type:none; margin: 0; border: none;">
+                                <li th:utext="${order.address1}"></li>
+                                <li th:utext="${order.address2}"></li>
+                                <li th:utext="${order.address1} ? ${order.city} + ', ' + ${order.state} + ' ' + ${order.zip} : ''"></li>
+                                <li style="margin-bottom: 0;" th:utext="${order.country}"></li>
+                            </ul>
+                        </div><!-- new shipping card end 3/4/2021 -->
+                    </div>
+                </div>
+                <p>
+                    Regards, <br />
+                    &emsp; <em>The EscoTech Team</em>
+                </p>
+            </div>
+            <div style="background-color: #333; padding: 4px 4px 0px 4px; text-align: right;">
+                <div style="background-image: url(images/logo-background.png);"
+                     data-th-style="|background-image: url(cid:logo-background)|">
+                    <img src="images/thumbnail.png" data-th-src="|cid:thumbnail|" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

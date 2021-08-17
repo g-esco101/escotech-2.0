@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Cart Summart | EscoTech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Displays a summary of the products in the cart.">
+</head>
+<body>
+<section th:fragment="cartSummary" id="summary-id" class="cart-summary text-center mx-auto mb-md-3" >
+    <a class="btn btn-primary btn-block" th:href="${(purchaserComplete and addressComplete) or (purchaserComplete and not needAddress)} ? @{|/orderReview|} : (${not purchaserComplete} ? @{|/purchaser|} : @{|/address|})">Checkout</a>
+    <table class="cart-table">
+        <tbody>
+        <tr>
+            <td class="text-left ">Subtotal(<span id="totalQuantity" th:utext="${cart.totalQuantity}"></span> items):</td>
+            <td class="text-right "><span id="subtotal" th:utext="${#numbers.formatCurrency(cart.subTotal)}"></span></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>
