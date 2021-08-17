@@ -4,7 +4,7 @@ EscoTech admins login via AWS Cognito and can perform CRUD operations on product
 Purchases are made with paypal via calls to their REST API.   Once a purchase is complete, a receipt is emailed to the purchaser via gmail smtp.
 
 - Hosted on AWS: https://goviesco.com (paypal is in sandbox mode, so you will not be able to login)
-- Demo (if site is not hosted): https://www.youtube.com/watch?v=GFSmuP0th0Q&list=PLdK_FPPkkRWmCwHKLnNEv6tFWcbF701rQ
+- Demo (if site is not hosted or to see admin use cases that are inaccessible without login info): https://www.youtube.com/watch?v=GFSmuP0th0Q&list=PLdK_FPPkkRWmCwHKLnNEv6tFWcbF701rQ
 ## Intallation
 To get this app running requires the creation and configuration of the following accounts: paypal developer, gmail, and AWS. The setup for each would require the writing of an article in itself. As an alternative, I will leave the app hosted on AWS as long as possible and provide a video that demos the app on youtube.
 ## Technology
@@ -46,6 +46,8 @@ This typically lists the names of model attributes or types of model attributes 
 - [ShippingController.java](src/main/java/com/escotech/controller/ShippingController.java)
 ### Email Receipt
 A thymeleaf template is used to compose an editable email: [email-editable](src/main/resources/mail/editablehtml/email-editable.html). The CSS is written inline for the email template; most email providers support it, so it will be less likely to have any formatting issues. Once an order is complete, the [Order](src/main/java/com/escotech/entity/Order.java) object is passed to the [EmailService](src/main/java/com/escotech/service/EmailService.java) where the order data is passed to the editable email template. The email is sent via gmail smtp.
+
+![email template](src/main/resources/mail/editablehtml/images/email-template.png)
 In order to send an email after the app is deployed, two step verification must be enabled (if it is not enabled and you attempt to use *less secure apps* gmail may not allow the app to sign in). Your gmail user name and the app password must be added to the [application.properties](src/main/resources/application.properties) file.
 To get an app password complete these steps:
 1. Go to https://security.google.com/settings/security/apppasswords and sign in to your account.
