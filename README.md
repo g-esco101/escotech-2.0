@@ -3,7 +3,7 @@ EscoTech is a fictitious online shop that specializes in the creation and repair
 EscoTech admins login via AWS Cognito and can perform CRUD operations on products and orders.
 Purchases are made with paypal via calls to their REST API.   Once a purchase is complete, a receipt is emailed to the purchaser via gmail smtp.
 
-- Hosted on AWS: https://goviesco.com
+- Hosted on AWS: https://goviescotech.com
 - Demo: https://www.youtube.com/watch?v=GFSmuP0th0Q&list=PLdK_FPPkkRWmCwHKLnNEv6tFWcbF701rQ
 
 Currently, paypal is in sandbox mode, so you are unable to login. Also, you are unable to login as an admin. So, please check the playlist to see a demo of these use cases and features, including the email receipt with the order details!
